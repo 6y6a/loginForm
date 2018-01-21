@@ -5,7 +5,11 @@
     "npm": "^3.x.x",
     "node": "^4.x.x"
   },
-  "os": [ "darwin", "linux", "win32" ],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
   "description": "Powerfull markup builder",
   "main": "gulpfile.js",
   "dependencies": {
