@@ -1,0 +1,218 @@
+
+.login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    padding: 10px;
+
+    &__form {
+        margin: auto;
+        padding: 40px;
+        background: #fff;
+        border-radius: 5px;
+        max-width: 500px;
+    }
+
+    &__header {
+        margin: 0 0 20px;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-right: -15px;
+        margin-left: -15px;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+        }
+    }
+
+    &__col-1 {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        display: flex;
+        margin: auto;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        @media screen and (min-width: 768px) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+    }
+
+    &__input {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        margin: 13px 0 5px;
+        width: 100%;
+        vertical-align: top;
+    }
+
+    &__field {
+        position: relative;
+        display: block;
+        width: 100%;
+        float: right;
+        padding: 10px;
+        color: #000;
+        font-family: sans-serif;
+        -webkit-appearance: none;
+        border-radius: 0;
+        background-color: #fff;
+        border: 2px solid $basic-color;
+        transition: background-color 0.3s, border-color 0.3s;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+
+    &__label {
+        position: absolute;
+        bottom: 100%;
+        display: inline-block;
+        width: 100%;
+        padding: 0 10px;
+        font-size: 80%;
+        color: #6a7989;
+        transform: translate3d(0, 30px, 0);
+        transition: transform 0.3s;
+        -webkit-touch-callout: none;
+        user-select: none;
+        pointer-events: none;
+
+
+        text-align: left;
+        float: right;
+        overflow: hidden;
+    }
+
+    &__label-content {
+        position: relative;
+        display: block;
+        width: 100%;
+        color: #8B8C8B;
+        padding: 2px 0;
+        transition: transform 0.3s;
+
+        &:after {
+            content: attr(data-content);
+            position: absolute;
+            font-weight: 800;
+            bottom: 100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            color: $basic-color;
+            padding: 2px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 80%;
+            z-index: -1;
+        }
+    }
+
+
+    &__field:focus + &__label,
+    &__input--filled &__label {
+        transform: translate3d(0, 0, 0);
+
+    }
+
+    &__field:focus + &__label &__label-content,
+    &__input--filled &__label-content {
+        transform: translate3d(0, 110%, 0);
+
+    }
+
+    &__field:focus + &__field,
+    &__input--filled &__field {
+        background-color: transparent;
+        border-color: $basic-color;
+    }
+
+    &__check {
+        margin: 13px 0 5px;
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        font-size: 18px;
+        user-select: none;
+    }
+
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        transition: .3s;
+
+        &:checked ~ .login__checkmark {
+            background-color: $basic-color;
+        }
+
+        &:checked ~ .login__checkmark:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #ccc;
+        transition: 0.3s;
+
+        &:after {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+
+            left: 8px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border-color: #fff;
+            border-style: solid;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+            transition: 0.3s;
+        }
+    }
+
+    &__btn {
+        display: inline-block;
+        margin: 13px 0 5px;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        background: $basic-color;
+        color: #fff;
+        outline: 0;
+        border: 0;
+        transition: 0.3s;
+        border-radius: 0;
+
+        &:hover {
+            background: darken($basic-color, 10%);
+        }
+    }
+}
+
