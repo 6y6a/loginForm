@@ -2,10 +2,15 @@
 
 html, body {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+
+    -webkit-font-smoothing: antialiased
+
 }
 
 .page {
-    
+
 }
 
 .page__wrapper {
@@ -19,4 +24,11 @@ html, body {
 
 .page__buffer {
     height: 50px;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
